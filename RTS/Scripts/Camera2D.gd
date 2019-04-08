@@ -38,11 +38,11 @@ func _process(delta):
 			if mousepos.x < marginx:
 				position.x = lerp(position.x, position.x - abs(mousepos.x-marginx)/marginx*panSpeed * zoom.x,panSpeed * delta)
 			elif mousepos.x > OS.window_size.x - marginx:
-				position.x = lerp(position.x, position.x +panSpeed * zoom.x,panSpeed * delta)	
-			#if mausepos.y < marginy:
-			#	position.y = lerp(position.y, position.y -panSpeed * zoom.y,panSpeed * delta)
-			#elif mausepos.y > marginy:
-			#	position.y = lerp(position.y, position.y -panSpeed * zoom.y,panSpeed * delta)
+				position.x = lerp(position.x, position.x + abs(mousepos.x - OS.window_size.x+marginx)/marginx*panSpeed * zoom.x,panSpeed * delta)	
+			if mousepos.y < marginy:
+				position.y = lerp(position.y, position.y - abs(mousepos.y-marginy)/marginy*panSpeed * zoom.y,panSpeed * delta)
+			elif mousepos.y > OS.window_size.y - marginy:
+				position.y = lerp(position.y, position.y + abs(mousepos.y - OS.window_size.y+marginy)/marginy*panSpeed * zoom.y,panSpeed * delta)	
 
 
 	#zoom in

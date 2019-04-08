@@ -50,6 +50,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
+panSpeed = 19.0
 speed = 19.0
 
 [node name="Man_1" parent="." instance=ExtResource( 7 )]
