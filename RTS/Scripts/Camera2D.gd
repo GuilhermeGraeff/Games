@@ -29,19 +29,19 @@ func _ready():
 func _process(delta):
 
 	#smooth movement
-	var inpx = (int(Input.is_action_pressed("ui_right"))- int(Input.is_action_pressed("ui_left")))
-	var inpy = (int(Input.is_action_pressed("ui_down"))- int(Input.is_action_pressed("ui_up")))
-	position.x = lerp(position.x, position.x + inpx *speed * zoom.x,speed * delta)
-	position.y = lerp(position.y, position.y + inpy *speed * zoom.y,speed * delta)
+	#var inpx = (int(Input.is_action_pressed("ui_right"))- int(Input.is_action_pressed("ui_left")))
+	#var inpy = (int(Input.is_action_pressed("ui_down"))- int(Input.is_action_pressed("ui_up")))
+	#position.x = lerp(position.x, position.x + inpx *speed * zoom.x,speed * delta)
+	#position.y = lerp(position.y, position.y + inpy *speed * zoom.y,speed * delta)
 	
-	if Input.is_key_pressed(KEY_CONTROL):
-			if mousepos.x < marginx:
+	#if Input.is_key_pressed(KEY_CONTROL):
+	if mousepos.x < marginx:
 				position.x = lerp(position.x, position.x - abs(mousepos.x-marginx)/marginx*panSpeed * zoom.x,panSpeed * delta)
-			elif mousepos.x > OS.window_size.x - marginx:
+	elif mousepos.x > OS.window_size.x - marginx:
 				position.x = lerp(position.x, position.x + abs(mousepos.x - OS.window_size.x+marginx)/marginx*panSpeed * zoom.x,panSpeed * delta)	
-			if mousepos.y < marginy:
+	if mousepos.y < marginy:
 				position.y = lerp(position.y, position.y - abs(mousepos.y-marginy)/marginy*panSpeed * zoom.y,panSpeed * delta)
-			elif mousepos.y > OS.window_size.y - marginy:
+	elif mousepos.y > OS.window_size.y - marginy:
 				position.y = lerp(position.y, position.y + abs(mousepos.y - OS.window_size.y+marginy)/marginy*panSpeed * zoom.y,panSpeed * delta)	
 
 

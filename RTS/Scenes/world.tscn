@@ -54,28 +54,28 @@ panSpeed = 19.0
 speed = 19.0
 
 [node name="Man_1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 224, 190.828 )
+position = Vector2( 561.574, 113.556 )
 
 [node name="Man_2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 296.406, 96 )
+position = Vector2( 439.65, -30.0794 )
 
 [node name="Man_3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 224, 96 )
+position = Vector2( 309.376, -76.8445 )
 
 [node name="Man_4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 192, 256 )
+position = Vector2( 215.846, -0.0160904 )
 
 [node name="Man_5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 352, 288 )
+position = Vector2( 22.1046, 61.7806 )
 
 [node name="Man_6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 352, 128 )
+position = Vector2( 90.5821, 210.427 )
 
 [node name="Man_7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 296.192, 288 )
+position = Vector2( 282.653, 238.82 )
 
 [node name="Man_8" parent="." instance=ExtResource( 7 )]
-position = Vector2( 384, 192 )
+position = Vector2( 342.78, 105.205 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 

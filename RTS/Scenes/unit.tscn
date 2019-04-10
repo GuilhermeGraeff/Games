@@ -1,28 +1,71 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/unit.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/selec.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Unit/medievalUnit_06.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Unit/abelhas.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Unit/abelha (1).png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Unit/abelha.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/grey_tickGrey.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/red_tick.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.14334, 12.5114 )
+[sub_resource type="AnimatedTexture" id=1]
+flags = 4
+frames = 2
+fps = 14.0
+frame_0/texture = ExtResource( 3 )
+frame_1/texture = ExtResource( 4 )
+frame_1/delay_sec = 0.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 23.8667
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Sprites/Fonts/Kenney Pixel.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+font_data = SubResource( 3 )
 
 [node name="unit" type="KinematicBody2D"]
-position = Vector2( 295.977, 190.828 )
+position = Vector2( 105.096, 234.89 )
 input_pickable = true
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="box" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = SubResource( 1 )
 
 [node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2( 0.214638, -3.8147e-06 )
-shape = SubResource( 1 )
+position = Vector2( 3.13454, -3.21187 )
+shape = SubResource( 2 )
+
+[node name="label" type="Label" parent="."]
+margin_left = -9.09296
+margin_top = -49.6705
+margin_right = 16.907
+margin_bottom = -37.6705
+custom_fonts/font = SubResource( 4 )
+text = "Nome"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Progress" type="TextureProgress" parent="."]
+margin_left = -23.7519
+margin_top = -37.2481
+margin_right = 29.2481
+margin_bottom = -29.2481
+value = 50.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 2
+stretch_margin_right = 10
+stretch_margin_bottom = 2
 
 [connection signal="input_event" from="." to="." method="_on_unit_input_event"]
