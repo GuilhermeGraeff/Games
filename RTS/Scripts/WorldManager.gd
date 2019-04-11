@@ -5,6 +5,7 @@ onready var button = preload("res://Scenes/Button.tscn")
 var buttons= []
 
 
+
 	
 func select_unit(unit):
 	if not selected_units.has(unit):
@@ -18,7 +19,6 @@ func deselect_unit(unit):
 		
 	#print("deselected %s"%unit.name)
 	create_buttons()
-
 
 
 
@@ -39,7 +39,7 @@ func delete_buttons():
 			b.queue_free()
 			$'UI/Base'.remove_child(b)
 	buttons.clear()
-	
+
 func was_pressed(obj):
 	for unit in selected_units:
 		if unit.name == obj.name:

@@ -77,6 +77,9 @@ position = Vector2( 282.653, 238.82 )
 [node name="Man_8" parent="." instance=ExtResource( 7 )]
 position = Vector2( 342.78, 105.205 )
 
+[node name="unit" parent="." instance=ExtResource( 7 )]
+position = Vector2( 880.801, 116.034 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Base" type="Control" parent="UI"]

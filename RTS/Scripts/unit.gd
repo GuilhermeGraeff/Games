@@ -4,11 +4,11 @@ export var selected = true setget set_selected
 onready var box = $box
 onready var label = $label
 onready var bar = $Progress
-signal was_selected
-signal was_deselected
+#signal was_selected
+#signal was_deselected
 export (int) var speed = 200
 var target = Vector2()
-var velocity = Vector2()
+var direction = Vector2()
 
 
 func set_selected(value):
@@ -34,12 +34,18 @@ func _ready():
 	label.text=name
 	bar.value = randi()%90+10
 	pass 
+	
+
+
 
 #IR ATÉ A POSIÇÃO DO MOUSE
 func _input(event):
 	if selected==true:
+		
+		
     	if event.is_action_pressed('mousedireito'):
         	target = get_global_mouse_position()
+			
 			
 		
 		
@@ -53,14 +59,19 @@ func _input(event):
 #   	if Input.is_action_pressed('mousedireito'):
 #        		velocity = Vector2(speed, 0).rotated(rotation)
 
+
+#IR ATÉ ONDE FOI CLICADO COM O 'mousedireito'
 func _physics_process(delta):
 #    get_input()
-    velocity = (target - position).normalized() * speed
-    # rotation = velocity.angle()
+
+    direction = (target - position).normalized() * speed
+#    rotation = velocity.angle()
     if (target - position).length() > 5:
-        move_and_slide(velocity)
-	
+		
+        move_and_slide(direction)
+
 func _process(delta):
+	update()
 	pass
 
 
