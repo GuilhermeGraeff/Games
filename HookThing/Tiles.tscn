@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/sprite_1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/sprite_0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/New Piskel.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.9504, 16.1289 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16.095, 15.9863 )
+
+[node name="Node" type="Node"]
+
+[node name="sprite_1" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 56.51, 60.9307 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="sprite_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite_1/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="sprite_0" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 105.18, 60.9067 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="sprite_0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite_0/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="New Piskel" type="Sprite" parent="."]
+position = Vector2( 154.682, 77.1083 )
+texture = ExtResource( 3 )
+

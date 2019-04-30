@@ -1,0 +1,306 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Object.tscn" type="PackedScene" id=2]
+[ext_resource path="res://item.tscn" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.360784, 1, 0, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
+
+[sub_resource type="CapsuleShape" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0, 1, 0.882353, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Floor" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, 0.911282, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0861912, 1.36211, -0.0417986 )
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( -5.46392e-08, 0.883884, -0.883884, 0, 0.883884, 0.883884, 1.25, 3.86358e-08, -3.86358e-08, -5.40363, 11.154, 0 )
+current = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.753553, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.05116, 2.7899e-08 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="objects" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="Object" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1466, 1.5428, 0.0499475 )
+
+[node name="Object24" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9253, 1.5428, -6.99747 )
+
+[node name="Object32" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9253, 1.5428, 8.59331 )
+
+[node name="Object42" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.842615, 1.33551, 16.6361 )
+
+[node name="Object53" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.33551, 17.5082 )
+
+[node name="Object68" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.33551, 1.42992 )
+
+[node name="Object74" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.33551, -5.00653 )
+
+[node name="Object63" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.33551, 9.52297 )
+
+[node name="Object84" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.33551, 3.08652 )
+
+[node name="Object72" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.33551, -6.55532 )
+
+[node name="Object78" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.33551, -12.9918 )
+
+[node name="Object2" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1466, 1.54899, -1.93908 )
+
+[node name="Object13" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9253, 1.54899, -8.98651 )
+
+[node name="Object25" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9253, 1.54899, 6.60428 )
+
+[node name="Object44" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.842615, 1.34169, 14.6471 )
+
+[node name="Object54" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34169, 15.5192 )
+
+[node name="Object69" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34169, -0.559111 )
+
+[node name="Object75" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34169, -6.99557 )
+
+[node name="Object64" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34169, 7.53394 )
+
+[node name="Object81" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34169, 1.09749 )
+
+[node name="Object67" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34169, -8.54435 )
+
+[node name="Object73" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34169, -14.9808 )
+
+[node name="Object3" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1466, 1.54788, -3.94549 )
+
+[node name="Object20" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9253, 1.54788, -10.9929 )
+
+[node name="Object26" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9253, 1.54788, 4.59787 )
+
+[node name="Object46" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.842615, 1.34058, 12.6407 )
+
+[node name="Object59" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34058, 13.5128 )
+
+[node name="Object65" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34058, -2.56552 )
+
+[node name="Object79" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34058, -9.00197 )
+
+[node name="Object61" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34058, 5.52753 )
+
+[node name="Object82" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34058, -0.908921 )
+
+[node name="Object70" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34058, -10.5508 )
+
+[node name="Object76" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34058, -16.9872 )
+
+[node name="Object4" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1466, 1.54788, -5.95789 )
+
+[node name="Object16" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9253, 1.54788, -13.0053 )
+
+[node name="Object35" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9253, 1.54788, 2.58548 )
+
+[node name="Object37" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.842615, 1.34058, 10.6283 )
+
+[node name="Object49" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34058, 11.5004 )
+
+[node name="Object66" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34058, -4.57792 )
+
+[node name="Object80" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34058, -11.0144 )
+
+[node name="Object62" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34058, 3.51514 )
+
+[node name="Object83" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34058, -2.92132 )
+
+[node name="Object71" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.048, 1.34058, -12.5632 )
+
+[node name="Object77" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01469, 1.34058, -18.9996 )
+
+[node name="Object5" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1437, 1.54788, -5.95789 )
+
+[node name="Object21" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9282, 1.54788, -13.0053 )
+
+[node name="Object51" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0451, 1.34058, 11.5004 )
+
+[node name="Object6" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.12181, 1.54788, -5.95789 )
+
+[node name="Object22" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9501, 1.54788, -13.0053 )
+
+[node name="Object27" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9501, 1.54788, 2.58548 )
+
+[node name="Object60" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0232, 1.34058, 11.5004 )
+
+[node name="Object7" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.11778, 1.54788, -7.95141 )
+
+[node name="Object19" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9541, 1.54788, -14.9988 )
+
+[node name="Object36" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9541, 1.54788, 0.591951 )
+
+[node name="Object48" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8714, 1.34058, 8.63473 )
+
+[node name="Object50" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0192, 1.34058, 9.50685 )
+
+[node name="Object8" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0844, 1.54788, -7.95141 )
+
+[node name="Object18" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, -14.9988 )
+
+[node name="Object34" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, 0.591951 )
+
+[node name="Object47" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90478, 1.34058, 8.63473 )
+
+[node name="Object56" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9858, 1.34058, 9.50685 )
+
+[node name="Object9" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0844, 1.54788, -9.92328 )
+
+[node name="Object17" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, -16.9707 )
+
+[node name="Object33" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, -1.37992 )
+
+[node name="Object43" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90478, 1.34058, 6.66286 )
+
+[node name="Object52" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9858, 1.34058, 7.53498 )
+
+[node name="Object10" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0844, 1.54788, -12.0076 )
+
+[node name="Object15" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, -19.055 )
+
+[node name="Object30" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, -3.46421 )
+
+[node name="Object40" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90478, 1.34058, 4.57857 )
+
+[node name="Object57" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9858, 1.34058, 5.45069 )
+
+[node name="Object11" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0844, 1.54075, -19.0205 )
+
+[node name="Object23" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, -7.52379 )
+
+[node name="Object31" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, 8.06699 )
+
+[node name="Object41" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90478, 1.34058, 16.1098 )
+
+[node name="Object55" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9858, 1.34058, 16.9819 )
+
+[node name="Object12" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0844, 1.54018, -16.9868 )
+
+[node name="Object14" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, -5.49011 )
+
+[node name="Object28" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9875, 1.54788, 10.1007 )
+
+[node name="Object38" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90478, 1.34058, 18.1435 )
+
+[node name="Object58" parent="objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9858, 1.34058, 19.0156 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 20, 0 )
+fov = 95.0
+
+[node name="Item" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6072, -16.3386 )
+

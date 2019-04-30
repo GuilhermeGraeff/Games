@@ -1,0 +1,137 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Level_from_blender.dae" type="PackedScene" id=1]
+[ext_resource path="res://MAIN_SCENE.gd" type="Script" id=2]
+[ext_resource path="res://KinematicBody.gd" type="Script" id=3]
+[ext_resource path="res://ITEM.gd" type="Script" id=4]
+[ext_resource path="res://Score_Steps.gd" type="Script" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0, 0.745098, 1, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, 1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0, 0.368627, 1, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=4]
+points = PoolVector3Array( -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, 1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0, 0.462745, 1, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=6]
+points = PoolVector3Array( -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, 1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 1, 0.145098, 0.145098, 1 )
+
+[sub_resource type="CubeMesh" id=9]
+material = SubResource( 8 )
+
+[sub_resource type="BoxShape" id=10]
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 1, 0.678431, 0, 1 )
+
+[sub_resource type="CubeMesh" id=12]
+material = SubResource( 11 )
+
+[node name="Scene Root" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Area" parent="." index="0"]
+transform = Transform( 0.15341, -0.527456, 0.835617, 0.422942, 0.799304, 0.426887, -0.893076, 0.287929, 0.345705, 15.4085, 8.28959, 8.57297 )
+light_energy = 1.25
+
+[node name="Camera" parent="." index="1"]
+transform = Transform( 0.495144, -0.481927, 0.722896, 1.63311e-07, 0.832053, 0.554697, -0.868811, -0.274655, 0.411986, 21.1157, 14.8235, 13.7247 )
+
+[node name="Ground" parent="." index="2"]
+editor/display_folded = true
+transform = Transform( 7.5, 0, -1.13247e-06, 0, -0.025, 0, 1.13247e-06, 0, 7.5, 3.99381, 0.0241272, 4.02076 )
+material/0 = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="Ground" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody" index="0"]
+shape = SubResource( 2 )
+
+[node name="Wall 1" parent="." index="3"]
+editor/display_folded = true
+transform = Transform( 0.025, 0, 0, 0, 2.75, 0, 0, 0, 7.5, -3.5, 2.75, 4 )
+material/0 = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Wall 1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall 1/StaticBody" index="0"]
+shape = SubResource( 4 )
+
+[node name="Wall 2" parent="." index="4"]
+transform = Transform( -1.09278e-09, 0, 7.5, 0, 2.75, 0, -0.025, 0, -3.27835e-07, 4, 2.75, -3.5 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Wall 2" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall 2/StaticBody" index="0"]
+shape = SubResource( 6 )
+
+[node name="PLAYER" type="KinematicBody" parent="." index="6"]
+editor/display_folded = true
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.70637, 0.850141, -2.68248 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PLAYER" index="0"]
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="PLAYER" index="1"]
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="ITEM" type="Area" parent="." index="7"]
+editor/display_folded = true
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.694, 0.889795, 8.518 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ITEM" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.03199e-05, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ITEM/CollisionShape" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5882e-05, 0 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="ITEM2" type="Area" parent="." index="8"]
+editor/display_folded = true
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.494, 0.889127, 5.318 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ITEM2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.03199e-05, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ITEM2/CollisionShape" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5882e-05, 0 )
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="Score_Steps" type="Label" parent="." index="9"]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 272.0
+margin_bottom = 155.0
+text = "ITEMS COLLECTED = item_var
+
+STEPS = steps_var
+
+
+"
+uppercase = true
+script = ExtResource( 5 )
+
+[connection signal="body_entered" from="ITEM" to="ITEM" method="_on_ITEM_body_entered"]
+[connection signal="body_entered" from="ITEM2" to="ITEM2" method="_on_ITEM_body_entered"]
